@@ -1,6 +1,11 @@
 <header>
 	<div class="main">
 		<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    {{/*  favicon  */}}
+    {{ if isset $.Site.Params "favicon" }}
+      <link rel="shortcut icon" href="{{ $.Site.Params.favicon | absURL }}">
+    {{ end }}
+
 	</div>
 	<nav>
 		{{ range .Site.Menus.main }}
