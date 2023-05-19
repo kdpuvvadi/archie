@@ -34,9 +34,9 @@
 		{{- $.Scratch.Set "isDisqus" false -}}
 		{{ end }}
 
-		{{- if eq ($.Scratch.Get "isDisqus") true -}}
-		{{- partial "disqus.html" . -}}
-		{{- end -}}
+    {{ if not (.Params.hideComments | default false) }}
+    {{ partial "giscus.html" . }}
+    {{ end }}
 	</article>
 </main>
 {{ end }}
